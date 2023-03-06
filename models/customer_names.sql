@@ -4,7 +4,7 @@
 
 {% set required_names = get_first_names() %}
 {% set first_order_date = "2018-01-01" %}
-{% set last_order_date = "2018-01-31" %}
+{% set last_order_date = "2018-03-31" %}
 
 {% if first_order_date is string %}
 {% endif %}
@@ -21,7 +21,9 @@ with
     {% for required_name in required_names %}
         {{required_name}}_view as (
             select *
-            from customers, orders
+            from customers
+            join orders
+            on customers.customer_id = orders.customer_id
             where
                 (customers.first_name = "{{required_name}}")
                 and (orders.order_date between "{{first_order_date}}" and "{{last_order_date}}")
