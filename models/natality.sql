@@ -12,11 +12,9 @@ natality as (
 
 new_data as (
 
-    select
-        Year,
-
-        County,
+    select County,
         Births,
+        Age_Mother
 
     from natality
 
@@ -36,7 +34,7 @@ final as (
 
     from customers
 
-    left join natality using (Year)
+    left join natality using (customer_id)
 
 )
 

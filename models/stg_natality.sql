@@ -1,5 +1,4 @@
-select  Year,
-        County_of_Residence as County,
+select County_of_Residence as County,
         Births,
         Ave_Age_of_Mother as Age_Mother
 
